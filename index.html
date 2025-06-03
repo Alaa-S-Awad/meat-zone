@@ -1,52 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Meat Zone</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      height: 100vh;
+      margin: 0;
+      background-color: #f9f9f9;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(to bottom right, #f8f8f8, #e0e0e0);
-      font-family: Arial, sans-serif;
+      height: 100vh;
     }
-
-    .image-container {
-      max-width: 95%;
-      max-height: 90vh;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      background-color: #fff;
-      padding: 10px;
-    }
-
-    .image-container img {
-      width: 100%;
-      height: auto;
-      display: block;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      border: 2px solid #ccc;
       border-radius: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .image-container {
-        padding: 5px;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="image-container">
-    <img src="my-image.jpg" alt="Meat Zone" />
-  </div>
+  <img src="my-image.jpg" alt="Meat Zone Image">
 </body>
 </html>
