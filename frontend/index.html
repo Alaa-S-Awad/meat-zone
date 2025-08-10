@@ -16,7 +16,7 @@
         }
 
         .menu-container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: auto;
             background-color: #1a1a1a;
             border: 1px solid #333;
@@ -41,33 +41,13 @@
             transform: translate(-50%, -50%);
             width: 70%;
             height: 70%;
-            background-image: url('مسار-صورة-اللوغو.png');
+            background-image: url('your-logo.png');
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
-            opacity: 0.1;
+            opacity: 0.05;
             z-index: 0;
             */
-        }
-
-        .header {
-            grid-column: 2 / span 2;
-            text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #e50914;
-        }
-
-        .header h1 {
-            color: #e50914;
-            font-size: 2.5em;
-            margin: 0;
-        }
-
-        .header p {
-            font-size: 1.2em;
-            color: #aaa;
-            margin: 5px 0 0;
         }
 
         .section {
@@ -128,6 +108,7 @@
             font-size: 0.9em;
             color: #aaa;
             margin-top: 5px;
+            text-align: center;
         }
         
         .sub-section {
@@ -147,73 +128,57 @@
             grid-column: span 2;
         }
 
-        .callories-info {
-            grid-column: 1 / -1;
+        .logo-section {
+            grid-column: 2 / span 2;
+            text-align: center;
+            margin: 0 0 20px 0;
+        }
+
+        .logo-section img {
+            max-width: 200px;
+        }
+
+        .notes-section {
+            grid-column: 4 / 5;
+            grid-row: 4 / 5;
             background-color: #2a2a2a;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
             text-align: center;
             border: 1px solid #444;
             margin-top: 20px;
-            position: relative;
-            z-index: 1;
         }
 
-        .callories-info h3 {
+        .notes-section h3 {
             color: #e50914;
             margin-bottom: 10px;
         }
 
-        .callories-info p {
+        .notes-section p {
             margin: 5px 0;
             font-size: 1em;
         }
 
-        /* تحديد موضع قسم الشوربات في أعلى اليسار */
-        .soup-section {
-            grid-column: 1 / 2;
-            grid-row: 1 / 2;
-        }
+        /* تحديد موضع الأقسام الرئيسية */
+        .soup { grid-column: 1; grid-row: 1; }
+        .signature { grid-column: 2; grid-row: 1; }
+        .burger { grid-column: 3; grid-row: 1; }
+        .drinks { grid-column: 4; grid-row: 1; }
+        .salad { grid-column: 1; grid-row: 2; }
+        .appetizers { grid-column: 1; grid-row: 3; }
+        .smokemeat { grid-column: 2 / span 2; grid-row: 2 / span 2; }
+        .dessert { grid-column: 4; grid-row: 2; }
 
-        /* تحديد موضع قسم المشروبات في أعلى اليمين */
-        .drinks-section {
-            grid-column: 4 / 5;
-            grid-row: 1 / 2;
-        }
-
-        .signature-section {
-            grid-column: 2 / 3;
-            grid-row: 1 / 2;
-        }
-
-        .burger-section {
-            grid-column: 3 / 4;
-            grid-row: 1 / 2;
-        }
-
-        .dessert-section {
-            grid-column: 4 / 5;
-            grid-row: 3 / 4;
-        }
-
-        .callories-info {
-            grid-column: 4 / 5;
-            grid-row: 4 / 5;
-        }
-
-        .notes-text {
-            color: #aaa;
-            font-size: 0.9em;
-            margin-top: 5px;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
 
     <div class="menu-container">
+        <div class="logo-section">
+            <img src="https://i.imgur.com/gK6tN1V.png" alt="شعار ميت-زون" style="max-width: 250px;">
+        </div>
 
-        <div class="section soup-section">
+        <div class="section soup">
             <div class="section-header">شوربات<span>Soup</span></div>
             <ul class="item-list">
                 <li class="item">
@@ -227,12 +192,7 @@
             </ul>
         </div>
         
-        <div class="header">
-            <h1>MEAT-ZONE</h1>
-            <p>ميت-زون</p>
-        </div>
-
-        <div class="section signature-section">
+        <div class="section signature">
             <div class="section-header">اختيارات الشيف<span>Our Signature</span></div>
             <ul class="item-list">
                 <li class="item">
@@ -254,10 +214,9 @@
             </ul>
         </div>
         
-        <div class="section burger-section">
+        <div class="section burger">
             <div class="section-header">برجر<span>Burger</span></div>
-            <div class="sub-section-title">سموك برجر</div>
-            <p class="item-description">لحم برجر بقري</p>
+            <div class="sub-section-title">برجر لحم</div>
             <ul class="item-list">
                 <li class="item">
                     <span class="item-name">ساندوتش</span>
@@ -268,8 +227,7 @@
                     <span class="item-price">678</span>
                 </li>
             </ul>
-            <div class="sub-section-title">دجاج برجر</div>
-            <p class="item-description">لحم برجر دجاج</p>
+            <div class="sub-section-title">برجر دجاج</div>
             <ul class="item-list">
                 <li class="item">
                     <span class="item-name">ساندوتش</span>
@@ -282,8 +240,9 @@
             </ul>
         </div>
 
-        <div class="section drinks-section">
+        <div class="section drinks">
             <div class="section-header">مشروبات<span>Drinks</span></div>
+            <div class="sub-section-title">مشروبات ساخنة</div>
             <ul class="item-list">
                 <li class="item">
                     <span class="item-name">قهوة تركية</span>
@@ -303,7 +262,7 @@
             </ul>
         </div>
         
-        <div class="section">
+        <div class="section salad">
             <div class="section-header">سلطات<span>Salad</span></div>
             <ul class="item-list">
                 <li class="item">
@@ -320,8 +279,8 @@
                 </li>
             </ul>
         </div>
-
-        <div class="section">
+        
+        <div class="section appetisers">
             <div class="section-header">مقبلات<span>Appetizers</span></div>
             <div class="sub-section-title">باردة</div>
             <ul class="item-list">
@@ -354,8 +313,8 @@
                 </li>
             </ul>
         </div>
-        
-        <div class="section grid-span-2">
+
+        <div class="section smokemeat grid-span-2">
             <div class="section-header">سموك ميت<span>Smoke meat</span></div>
             <div class="sub-section-title">لحم ضأن</div>
             <p class="item-description">مع صلصة لحم الضأن الخاصة</p>
@@ -378,7 +337,7 @@
             </ul>
         </div>
         
-        <div class="section dessert-section">
+        <div class="section dessert">
             <div class="section-header">حلويات<span>Dessert</span></div>
             <ul class="item-list">
                 <li class="item">
@@ -392,7 +351,7 @@
             </ul>
         </div>
         
-        <div class="callories-info">
+        <div class="notes-section">
             <h3>احتياجات الشخص من السعرات الحرارية</h3>
             <p><strong>الرجل:</strong> 2000 - 3000 سعرة حرارية</p>
             <p><strong>المرأة:</strong> 1600 - 2400 سعرة حرارية</p>
