@@ -119,13 +119,14 @@
         }
 
         .logo-section {
-            grid-column: 2 / span 2;
+            grid-column: 1 / -1;
+            grid-row: 1;
             text-align: center;
             margin: 0 0 20px 0;
         }
 
         .logo-section img {
-            max-width: 200px;
+            max-width: 250px;
         }
 
         .notes-section {
@@ -147,15 +148,15 @@
         }
 
         /* تحديد موضع الأقسام الرئيسية على شاشات الكمبيوتر */
-        .soup { grid-column: 1 / 2; grid-row: 1; }
-        .signature { grid-column: 2 / 3; grid-row: 1; }
-        .burger { grid-column: 3 / 4; grid-row: 1; }
-        .drinks { grid-column: 4 / 5; grid-row: 1; }
-        .salad { grid-column: 1 / 2; grid-row: 2; }
-        .appetizers { grid-column: 1 / 2; grid-row: 3; }
-        .smokemeat { grid-column: 2 / span 2; grid-row: 2 / 4; }
-        .dessert { grid-column: 4 / 5; grid-row: 2; }
-        .notes-section-container { grid-column: 4 / 5; grid-row: 3 / 4; }
+        .soup { grid-column: 1 / 2; grid-row: 2; }
+        .signature { grid-column: 2 / 3; grid-row: 2; }
+        .burger { grid-column: 3 / 4; grid-row: 2; }
+        .drinks { grid-column: 4 / 5; grid-row: 2; }
+        .salad { grid-column: 1 / 2; grid-row: 3; }
+        .appetizers { grid-column: 1 / 2; grid-row: 4; }
+        .smokemeat { grid-column: 2 / span 2; grid-row: 3 / span 2; }
+        .dessert { grid-column: 4 / 5; grid-row: 3; }
+        .notes-section-container { grid-column: 4 / 5; grid-row: 4 / 5; }
 
         /* Media Queries للتوافق مع شاشات الجوال */
         @media (max-width: 768px) {
@@ -164,11 +165,7 @@
                 padding: 15px;
             }
             
-            .logo-section {
-                grid-column: 1 / -1;
-            }
-
-            .section, .logo-section, .notes-section-container {
+            .logo-section, .section, .notes-section-container {
                 grid-column: 1 / -1;
                 grid-row: auto;
             }
