@@ -30,7 +30,6 @@
             overflow: hidden;
         }
 
-        /* إضافة صورة مائية في الخلفية */
         .menu-container::before {
             /*
             content: '';
@@ -110,10 +109,6 @@
             text-align: center;
         }
         
-        .sub-section {
-            margin-top: 15px;
-        }
-
         .sub-section-title {
             text-align: center;
             color: #ccc;
@@ -121,10 +116,6 @@
             margin: 10px 0;
             border-bottom: 1px dotted #555;
             padding-bottom: 5px;
-        }
-
-        .grid-span-2 {
-            grid-column: span 2;
         }
 
         .logo-section {
@@ -138,14 +129,11 @@
         }
 
         .notes-section {
-            grid-column: 4 / 5;
-            grid-row: 4 / 5;
             background-color: #2a2a2a;
             padding: 15px;
             border-radius: 8px;
             text-align: center;
             border: 1px solid #444;
-            margin-top: 20px;
         }
 
         .notes-section h3 {
@@ -158,15 +146,16 @@
             font-size: 1em;
         }
 
-        /* تحديد موضع الأقسام الرئيسية */
-        .soup { grid-column: 1; grid-row: 1; }
-        .signature { grid-column: 2; grid-row: 1; }
-        .burger { grid-column: 3; grid-row: 1; }
-        .drinks { grid-column: 4; grid-row: 1; }
-        .salad { grid-column: 1; grid-row: 2; }
-        .appetizers { grid-column: 1; grid-row: 3; }
-        .smokemeat { grid-column: 2 / span 2; grid-row: 2 / span 2; }
-        .dessert { grid-column: 4; grid-row: 2; }
+        /* تحديد موضع الأقسام الرئيسية على شاشات الكمبيوتر */
+        .soup { grid-column: 1 / 2; grid-row: 1; }
+        .signature { grid-column: 2 / 3; grid-row: 1; }
+        .burger { grid-column: 3 / 4; grid-row: 1; }
+        .drinks { grid-column: 4 / 5; grid-row: 1; }
+        .salad { grid-column: 1 / 2; grid-row: 2; }
+        .appetizers { grid-column: 1 / 2; grid-row: 3; }
+        .smokemeat { grid-column: 2 / span 2; grid-row: 2 / 4; }
+        .dessert { grid-column: 4 / 5; grid-row: 2; }
+        .notes-section-container { grid-column: 4 / 5; grid-row: 3 / 4; }
 
         /* Media Queries للتوافق مع شاشات الجوال */
         @media (max-width: 768px) {
@@ -174,12 +163,12 @@
                 grid-template-columns: 1fr;
                 padding: 15px;
             }
-
+            
             .logo-section {
                 grid-column: 1 / -1;
             }
 
-            .section, .grid-span-2, .notes-section, .soup, .signature, .burger, .drinks, .salad, .appetizers, .smokemeat, .dessert {
+            .section, .logo-section, .notes-section-container {
                 grid-column: 1 / -1;
                 grid-row: auto;
             }
@@ -200,7 +189,7 @@
         <div class="logo-section">
             <img src="https://www.meat-zone.com/LogoMeat-Zone.png" alt="شعار ميت-زون" style="max-width: 250px;">
         </div>
-       
+
         <div class="section soup">
             <div class="section-header">شوربات<span>Soup</span></div>
             <ul class="item-list">
@@ -337,7 +326,7 @@
             </ul>
         </div>
 
-        <div class="section smokemeat grid-span-2">
+        <div class="section smokemeat">
             <div class="section-header">سموك ميت<span>Smoke meat</span></div>
             <div class="sub-section-title">لحم ضأن</div>
             <p class="item-description">مع صلصة لحم الضأن الخاصة</p>
@@ -374,11 +363,13 @@
             </ul>
         </div>
         
-        <div class="notes-section">
-            <h3>احتياجات الشخص من السعرات الحرارية</h3>
-            <p><strong>الرجل:</strong> 2000 - 3000 سعرة حرارية</p>
-            <p><strong>المرأة:</strong> 1600 - 2400 سعرة حرارية</p>
-            <p><strong>الأطفال:</strong> 1800 سعرة حرارية</p>
+        <div class="notes-section-container">
+            <div class="notes-section">
+                <h3>احتياجات الشخص من السعرات الحرارية</h3>
+                <p><strong>الرجل:</strong> 2000 - 3000 سعرة حرارية</p>
+                <p><strong>المرأة:</strong> 1600 - 2400 سعرة حرارية</p>
+                <p><strong>الأطفال:</strong> 1800 سعرة حرارية</p>
+            </div>
         </div>
 
     </div>
