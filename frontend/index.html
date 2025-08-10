@@ -91,22 +91,44 @@
             border-bottom: none;
         }
 
+        .item-info {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            flex-grow: 1;
+            align-items: center;
+        }
+        
         .item-name {
             font-size: 1.1em;
-            flex-grow: 1;
-            padding-left: 10px;
+            margin: 0;
+        }
+        
+        .item-translation {
+            font-size: 0.9em;
+            color: #aaa;
+            margin: 0;
         }
 
-        .item-price {
-            font-size: 1.1em;
-            color: #e50914;
-            font-weight: bold;
+        .item-price-calories {
             display: flex;
             align-items: center;
+            font-size: 1em;
+            color: #e50914;
+            font-weight: bold;
+            flex-shrink: 0;
+            gap: 10px;
         }
 
         .item-price::after {
             content: '﷼';
+            margin-right: 5px;
+            font-size: 0.8em;
+            color: #aaa;
+        }
+
+        .item-calories::after {
+            content: ' سعرة';
             margin-right: 5px;
             font-size: 0.8em;
             color: #aaa;
@@ -137,32 +159,6 @@
 
         .logo-section img {
             max-width: 250px;
-        }
-
-        .header-info {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #444;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .header-info .calories,
-        .header-info .currency {
-            font-size: 1.2em;
-            color: #e50914;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .header-info .calories span,
-        .header-info .currency span {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #fff;
         }
 
         .notes-section {
@@ -207,7 +203,7 @@
                 padding: 15px;
             }
             
-            .logo-section, .header-info, .section, .notes-section-container {
+            .logo-section, .section, .notes-section-container {
                 grid-column: 1 / -1;
                 grid-row: auto;
             }
@@ -220,8 +216,15 @@
                 font-size: 1.5em;
             }
 
-            .item-name, .item-price, .item-description, .sub-section-title {
+            .item-name, .item-price, .item-description, .sub-section-title, .item-translation {
                 font-size: 1em;
+            }
+            .item-price-calories {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .item-info {
+                align-items: flex-start;
             }
         }
     </style>
@@ -233,27 +236,30 @@
             <img src="https://www.meat-zone.com/LogoMeat-Zone.png" alt="شعار ميتزون" style="max-width: 250px;">
         </div>
 
-        <div class="header-info">
-            <div class="calories">
-                سعرات حرارية: <span id="calories-value">0</span>
-            </div>
-            <div class="currency">
-                سعر الريال: <span id="currency-value">0</span>﷼
-            </div>
-        </div>
-
         <div class="section soup">
             <div class="section-header">Soup<span>شوربات</span></div>
             <p><center>Served inside hard italian bread</center></p>
             <p><center>تقدم بخبزة الشوربة ايطاليه</center></p>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">شوربة فطر</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">شوربة فطر</span>
+                        <span class="item-translation">Mushroom Soup</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">شوربة عدس</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">شوربة عدس</span>
+                        <span class="item-translation">Lentil Soup</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -262,20 +268,44 @@
             <div class="section-header">Our Signature<span>Hot Rock</span></div>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">واجيو</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">واجيو</span>
+                        <span class="item-translation">Wagyu</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">ستريبلوين</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">ستريبلوين</span>
+                        <span class="item-translation">Striploin</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">توماهوك</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">توماهوك</span>
+                        <span class="item-translation">Tomahawk</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">برايم أنجوس</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">برايم أنجوس</span>
+                        <span class="item-translation">Prime Angus</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -285,23 +315,47 @@
             <div class="sub-section-title">برجر لحم</div>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">ساندوتش</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">ساندوتش</span>
+                        <span class="item-translation">Sandwich</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">وجبة</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">وجبة</span>
+                        <span class="item-translation">Meal</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
             <div class="sub-section-title">برجر دجاج</div>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">ساندوتش</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">ساندوتش</span>
+                        <span class="item-translation">Sandwich</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">وجبة</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">وجبة</span>
+                        <span class="item-translation">Meal</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -311,19 +365,37 @@
             <div class="sub-section-title">مشروبات ساخنة</div>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">قهوة تركية</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">قهوة تركية</span>
+                        <span class="item-translation">Turkish Coffee</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
             <div class="sub-section-title">عصير فريش</div>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">عصير برتقال</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">عصير برتقال</span>
+                        <span class="item-translation">Orange Juice</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">عصير ليمون ونعناع</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">عصير ليمون ونعناع</span>
+                        <span class="item-translation">Lemon Mint Juice</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -332,16 +404,34 @@
             <div class="section-header">Salad<span>سلطات</span></div>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">سلطة ميت زون</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">سلطة ميت زون</span>
+                        <span class="item-translation">Meat Zone Salad</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">سلطة قيصر</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">سلطة قيصر</span>
+                        <span class="item-translation">Caesar Salad</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">سلطة كينوا تبولة</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">سلطة كينوا تبولة</span>
+                        <span class="item-translation">Quinoa Tabbouleh Salad</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -351,31 +441,67 @@
             <div class="sub-section-title">باردة</div>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">حمص</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">حمص</span>
+                        <span class="item-translation">Hummus</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">بابا غنوج</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">بابا غنوج</span>
+                        <span class="item-translation">Baba Ghanoush</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">متبل</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">متبل</span>
+                        <span class="item-translation">Muttabal</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
             <div class="sub-section-title">ساخنة</div>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">أجنحة دجاج</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">أجنحة دجاج</span>
+                        <span class="item-translation">Chicken Wings</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">أصابع موزاريلا</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">أصابع موزاريلا</span>
+                        <span class="item-translation">Mozzarella Sticks</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">حلقات بصل</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">حلقات بصل</span>
+                        <span class="item-translation">Onion Rings</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -384,21 +510,40 @@
             <div class="section-header">Smoke meat<span>سموك ميت</span></div>
             <div class="sub-section-title">لحم ضأن</div>
             <p class="item-description">مع صلصة لحم الضأن الخاصة</p>
+            <p class="item-description">With special lamb sauce</p>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">لحم ضأن</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">لحم ضأن</span>
+                        <span class="item-translation">Lamb</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
             <div class="sub-section-title">دجاج</div>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">نصف دجاجة كاملة</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">نصف دجاجة كاملة</span>
+                        <span class="item-translation">Half a whole chicken</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">دجاجة كاملة</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">دجاجة كاملة</span>
+                        <span class="item-translation">Whole chicken</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -407,12 +552,24 @@
             <div class="section-header">Dessert<span>حلويات</span></div>
             <ul class="item-list">
                 <li class="item">
-                    <span class="item-name">نابلس كنافة</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">نابلس كنافة</span>
+                        <span class="item-translation">Nabulsi Kunafa</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
                 <li class="item">
-                    <span class="item-name">أم علي</span>
-                    <span class="item-price">0</span>
+                    <div class="item-info">
+                        <span class="item-name">أم علي</span>
+                        <span class="item-translation">Umm Ali</span>
+                    </div>
+                    <div class="item-price-calories">
+                        <span class="item-price">0</span>
+                        <span class="item-calories">0</span>
+                    </div>
                 </li>
             </ul>
         </div>
