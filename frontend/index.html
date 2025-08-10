@@ -1,297 +1,177 @@
-\<\!DOCTYPE html\>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة طعام مطعم ميت-زون</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
 
-\<html lang="ar" dir="rtl"\>
-\<head\>
-\<meta charset="UTF-8"\>
-\<meta name="viewport" content="width=device-width, initial-scale=1.0"\>
-\<title\>قائمة طعام مطعم ميت-زون\</title\>
-\<style\>
-@import url('[https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700\&display=swap](https://www.google.com/search?q=https://fonts.googleapis.com/css2%3Ffamily%3DTajawal:wght%40400%3B700%26display%3Dswap)');
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
 
-```
-    body {
-        font-family: 'Tajawal', sans-serif;
-        background-color: #000;
-        color: #fff;
-        margin: 0;
-        padding: 20px;
-    }
+        .menu-container {
+            max-width: 1300px;
+            margin: auto;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 30px;
+            border-radius: 10px;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(min-content, max-content);
+        }
 
-    .menu-container {
-        max-width: 1200px;
-        margin: auto;
-        background-color: #1a1a1a;
-        border: 2px solid #333;
-        padding: 30px;
-        border-radius: 10px;
-        display: grid;
-        gap: 30px;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto;
-    }
-    
-    .header {
-        text-align: center;
-        grid-column: 1 / -1;
-        margin-bottom: 20px;
-    }
+        .header {
+            grid-column: 2 / span 2;
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e50914;
+        }
 
-    .header img {
-        width: 200px;
-        margin-bottom: 10px;
-    }
-    
-    .section {
-        border-bottom: 2px solid #333;
-        padding-bottom: 20px;
-    }
+        .header h1 {
+            color: #e50914;
+            font-size: 2.5em;
+            margin: 0;
+        }
 
-    .section-header {
-        text-align: center;
-        font-size: 2em;
-        color: #e50914;
-        margin-bottom: 15px;
-        position: relative;
-    }
+        .header p {
+            font-size: 1.2em;
+            color: #aaa;
+            margin: 5px 0 0;
+        }
 
-    .section-header::after {
-        content: '';
-        display: block;
-        width: 50px;
-        height: 3px;
-        background-color: #e50914;
-        margin: 10px auto 0;
-    }
+        .section {
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #222;
+        }
 
-    .item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 0;
-        border-bottom: 1px dotted #444;
-    }
+        .section-header {
+            text-align: center;
+            font-size: 1.8em;
+            color: #e50914;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
 
-    .item:last-child {
-        border-bottom: none;
-    }
+        .section-header span {
+            display: block;
+            font-size: 0.6em;
+            color: #aaa;
+        }
+        
+        .item-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .item-name {
-        font-size: 1.1em;
-        flex-grow: 1;
-    }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dotted #444;
+        }
 
-    .item-price {
-        font-size: 1.1em;
-        color: #e50914;
-    }
+        .item:last-child {
+            border-bottom: none;
+        }
 
-    .item-description {
-        font-size: 0.9em;
-        color: #aaa;
-        margin-top: 5px;
-    }
+        .item-name {
+            font-size: 1.1em;
+            flex-grow: 1;
+            padding-left: 10px;
+        }
 
-    .item-details {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.9em;
-        color: #aaa;
-        margin-top: 5px;
-    }
+        .item-price {
+            font-size: 1.1em;
+            color: #e50914;
+            font-weight: bold;
+        }
 
-    .item-details span:first-child {
-        font-weight: bold;
-    }
+        .item-description {
+            font-size: 0.9em;
+            color: #aaa;
+            margin-top: 5px;
+        }
+        
+        .sub-section {
+            margin-top: 15px;
+        }
 
-    .grid-span-2 {
-        grid-column: span 2;
-    }
+        .sub-section-title {
+            text-align: center;
+            color: #ccc;
+            font-size: 1.2em;
+            margin: 10px 0;
+            border-bottom: 1px dotted #555;
+            padding-bottom: 5px;
+        }
 
-    .notes {
-        grid-column: 1 / -1;
-        background-color: #222;
-        padding: 15px;
-        border-radius: 8px;
-        text-align: center;
-        font-size: 1.1em;
-        border: 1px solid #444;
-    }
-</style>
-```
+        .grid-span-2 {
+            grid-column: span 2;
+        }
 
-\</head\>
-\<body\>
+        .callories-info {
+            grid-column: 1 / -1;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #444;
+            margin-top: 20px;
+        }
 
-```
-<div class="menu-container">
+        .callories-info h3 {
+            color: #e50914;
+            margin-bottom: 10px;
+        }
 
-    <div class="header">
-        <img src="[https://i.imgur.com/your-meat-zone-logo.png](https://i.imgur.com/your-meat-zone-logo.png)" alt="شعار ميت-زون">
-        <h1>قائمة طعام</h1>
-    </div>
+        .callories-info p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
 
-    <div class="section">
-        <div class="section-header">شوربات<br><span style="font-size: 0.6em;">Soup</span></div>
-        <div class="item">
-            <div class="item-name">شوربة عدس</div>
-            <div class="item-price">120</div>
-        </div>
-        <div class="item">
-            <div class="item-name">شوربة فطر</div>
-            <div class="item-price">170</div>
-        </div>
-        <div class="item">
-            <div class="item-name">شوربة بصل فرنسي</div>
-            <div class="item-price">150</div>
-        </div>
-    </div>
+    <div class="menu-container">
 
-    <div class="section grid-span-2">
-        <div class="section-header">بُرجر<br><span style="font-size: 0.6em;">Burger</span></div>
-
-        <h3 style="color: #e50914; text-align: center;">Smoke burger</h3>
-        <div class="item-details">
-            <span>لحم برجر بقري</span>
-            <span>Cal</span>
-            <span>السعر</span>
-        </div>
-        <div class="item">
-            <div class="item-name">ساندوتش</div>
-            <div class="item-price">170</div>
-        </div>
-        <div class="item">
-            <div class="item-name">وجبة</div>
-            <div class="item-price">295</div>
+        <div class="header">
+            <h1>MEAT-ZONE</h1>
+            <p>ميت-زون</p>
         </div>
 
-        <h3 style="color: #e50914; text-align: center;">Chicken burger</h3>
-        <div class="item-details">
-            <span>لحم برجر دجاج</span>
-            <span>Cal</span>
-            <span>السعر</span>
+        <div class="section">
+            <div class="section-header">شوربات<span>Soup</span></div>
+            <ul class="item-list">
+                <li class="item">
+                    <span class="item-name">شوربة فطر</span>
+                    <span class="item-price">220</span>
+                </li>
+                <li class="item">
+                    <span class="item-name">شوربة عدس</span>
+                    <span class="item-price">170</span>
+                </li>
+            </ul>
         </div>
-        <div class="item">
-            <div class="item-name">ساندوتش</div>
-            <div class="item-price">120</div>
-        </div>
-        <div class="item">
-            <div class="item-name">وجبة</div>
-            <div class="item-price">250</div>
-        </div>
-    </div>
 
-    <div class="section">
-        <div class="section-header">مشروبات<br><span style="font-size: 0.6em;">Drinks</span></div>
-        <div class="item-details" style="font-size: 1.1em;">
-            <span>قهوة تركية</span>
-            <span>12</span>
-        </div>
-        <div class="item-details" style="font-size: 1.1em;">
-            <span>مياه غازية</span>
-            <span>15</span>
-        </div>
-        <div class="item-details" style="font-size: 1.1em;">
-            <span>عصير برتقال</span>
-            <span>15</span>
-        </div>
-        <div class="item-details" style="font-size: 1.1em;">
-            <span>عصير ليمون ونعناع</span>
-            <span>17</span>
-        </div>
-        <div class="item-details" style="font-size: 1.1em;">
-            <span>ساندوتش</span>
-            <span>15</span>
-        </div>
-        <div class="item-details" style="font-size: 1.1em;">
-            <span>ساندوتش</span>
-            <span>15</span>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-header">سلطات<br><span style="font-size: 0.6em;">Salad</span></div>
-        <div class="item">
-            <div class="item-name">سلطة قيصر</div>
-            <div class="item-price">18</div>
-        </div>
-        <div class="item">
-            <div class="item-name">سلطة يونانية</div>
-            <div class="item-price">28</div>
-        </div>
-        <div class="item">
-            <div class="item-name">سلطة مكسيكية</div>
-            <div class="item-price">28</div>
-        </div>
-        <div class="item">
-            <div class="item-name">سلطة كينوا</div>
-            <div class="item-price">32</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-header">مقبلات<br><span style="font-size: 0.6em;">Appetizers</span></div>
-        <div class="item">
-            <div class="item-name">بطاطس مقلية</div>
-            <div class="item-price">15</div>
-        </div>
-        <div class="item">
-            <div class="item-name">اجنحة دجاج</div>
-            <div class="item-price">20</div>
-        </div>
-        <div class="item">
-            <div class="item-name">حلقات بصل</div>
-            <div class="item-price">18</div>
-        </div>
-        <div class="item">
-            <div class="item-name">أصابع موزاريلا</div>
-            <div class="item-price">25</div>
-        </div>
-    </div>
-    
-    <div class="section">
-        <div class="section-header">اختيارات الشيف<br><span style="font-size: 0.6em;">Our Signature</span></div>
-        <div class="item">
-            <div class="item-name">واغيو</div>
-            <div class="item-price">299</div>
-        </div>
-        <div class="item">
-            <div class="item-name">ستريبلوين</div>
-            <div class="item-price">150</div>
-        </div>
-        <div class="item">
-            <div class="item-name">تومهاوك</div>
-            <div class="item-price">330</div>
-        </div>
-        <div class="item">
-            <div class="item-name">برايم أنجوس</div>
-            <div class="item-price">200</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-header">حلويات<br><span style="font-size: 0.6em;">Dessert</span></div>
-        <div class="item">
-            <div class="item-name">نابوس كنافة</div>
-            <div class="item-price">19</div>
-        </div>
-        <div class="item">
-            <div class="item-name">أم علي</div>
-            <div class="item-price">15</div>
-        </div>
-    </div>
-
-    <div class="notes grid-span-4">
-        <p><strong>احتياجات الشخص من السعرات الحرارية</strong></p>
-        <p><strong>الرجل:</strong> 2000 - 3000 سعرة حرارية</p>
-        <p><strong>المرأة:</strong> 1600 - 2400 سعرة حرارية</p>
-        <p><strong>الأطفال:</strong> 1800 سعرة حرارية</p>
-    </div>
-
-</div>
-```
-
-\</body\>
-\</html\>
-
-```
-```
+        <div class="section">
+            <div class="section-header">سلطات<span>Salad</span></div>
+            <ul class="item-list">
+                <li class="item">
+                    <span class="item-name">سلطة ميت زون</span>
+                    <span class="item-price">598</span>
+                </li>
+                <li class="item
