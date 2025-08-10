@@ -1,24 +1,297 @@
+\<\!DOCTYPE html\>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Meat Zone Restaurant</title>
-</head>
-<body>
-  <h1>قائمة الطعام</h1>
-  <div id="menu"></div>
+\<html lang="ar" dir="rtl"\>
+\<head\>
+\<meta charset="UTF-8"\>
+\<meta name="viewport" content="width=device-width, initial-scale=1.0"\>
+\<title\>قائمة طعام مطعم ميت-زون\</title\>
+\<style\>
+@import url('[https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700\&display=swap](https://www.google.com/search?q=https://fonts.googleapis.com/css2%3Ffamily%3DTajawal:wght%40400%3B700%26display%3Dswap)');
 
-  <label>رقم الطاولة:</label>
-  <input type="number" id="tableNumber" />
+```
+    body {
+        font-family: 'Tajawal', sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+    }
 
-  <label>اسم العميل:</label>
-  <input type="text" id="customerName" />
+    .menu-container {
+        max-width: 1200px;
+        margin: auto;
+        background-color: #1a1a1a;
+        border: 2px solid #333;
+        padding: 30px;
+        border-radius: 10px;
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+    }
+    
+    .header {
+        text-align: center;
+        grid-column: 1 / -1;
+        margin-bottom: 20px;
+    }
 
-  <label>رقم الجوال:</label>
-  <input type="text" id="phoneNumber" />
+    .header img {
+        width: 200px;
+        margin-bottom: 10px;
+    }
+    
+    .section {
+        border-bottom: 2px solid #333;
+        padding-bottom: 20px;
+    }
 
-  <button onclick="submitOrder()">تأكيد الطلب</button>
+    .section-header {
+        text-align: center;
+        font-size: 2em;
+        color: #e50914;
+        margin-bottom: 15px;
+        position: relative;
+    }
 
-  <script src="app.js"></script>
-</body>
-</html>
+    .section-header::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 3px;
+        background-color: #e50914;
+        margin: 10px auto 0;
+    }
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px dotted #444;
+    }
+
+    .item:last-child {
+        border-bottom: none;
+    }
+
+    .item-name {
+        font-size: 1.1em;
+        flex-grow: 1;
+    }
+
+    .item-price {
+        font-size: 1.1em;
+        color: #e50914;
+    }
+
+    .item-description {
+        font-size: 0.9em;
+        color: #aaa;
+        margin-top: 5px;
+    }
+
+    .item-details {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9em;
+        color: #aaa;
+        margin-top: 5px;
+    }
+
+    .item-details span:first-child {
+        font-weight: bold;
+    }
+
+    .grid-span-2 {
+        grid-column: span 2;
+    }
+
+    .notes {
+        grid-column: 1 / -1;
+        background-color: #222;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 1.1em;
+        border: 1px solid #444;
+    }
+</style>
+```
+
+\</head\>
+\<body\>
+
+```
+<div class="menu-container">
+
+    <div class="header">
+        <img src="[https://i.imgur.com/your-meat-zone-logo.png](https://i.imgur.com/your-meat-zone-logo.png)" alt="شعار ميت-زون">
+        <h1>قائمة طعام</h1>
+    </div>
+
+    <div class="section">
+        <div class="section-header">شوربات<br><span style="font-size: 0.6em;">Soup</span></div>
+        <div class="item">
+            <div class="item-name">شوربة عدس</div>
+            <div class="item-price">120</div>
+        </div>
+        <div class="item">
+            <div class="item-name">شوربة فطر</div>
+            <div class="item-price">170</div>
+        </div>
+        <div class="item">
+            <div class="item-name">شوربة بصل فرنسي</div>
+            <div class="item-price">150</div>
+        </div>
+    </div>
+
+    <div class="section grid-span-2">
+        <div class="section-header">بُرجر<br><span style="font-size: 0.6em;">Burger</span></div>
+
+        <h3 style="color: #e50914; text-align: center;">Smoke burger</h3>
+        <div class="item-details">
+            <span>لحم برجر بقري</span>
+            <span>Cal</span>
+            <span>السعر</span>
+        </div>
+        <div class="item">
+            <div class="item-name">ساندوتش</div>
+            <div class="item-price">170</div>
+        </div>
+        <div class="item">
+            <div class="item-name">وجبة</div>
+            <div class="item-price">295</div>
+        </div>
+
+        <h3 style="color: #e50914; text-align: center;">Chicken burger</h3>
+        <div class="item-details">
+            <span>لحم برجر دجاج</span>
+            <span>Cal</span>
+            <span>السعر</span>
+        </div>
+        <div class="item">
+            <div class="item-name">ساندوتش</div>
+            <div class="item-price">120</div>
+        </div>
+        <div class="item">
+            <div class="item-name">وجبة</div>
+            <div class="item-price">250</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">مشروبات<br><span style="font-size: 0.6em;">Drinks</span></div>
+        <div class="item-details" style="font-size: 1.1em;">
+            <span>قهوة تركية</span>
+            <span>12</span>
+        </div>
+        <div class="item-details" style="font-size: 1.1em;">
+            <span>مياه غازية</span>
+            <span>15</span>
+        </div>
+        <div class="item-details" style="font-size: 1.1em;">
+            <span>عصير برتقال</span>
+            <span>15</span>
+        </div>
+        <div class="item-details" style="font-size: 1.1em;">
+            <span>عصير ليمون ونعناع</span>
+            <span>17</span>
+        </div>
+        <div class="item-details" style="font-size: 1.1em;">
+            <span>ساندوتش</span>
+            <span>15</span>
+        </div>
+        <div class="item-details" style="font-size: 1.1em;">
+            <span>ساندوتش</span>
+            <span>15</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">سلطات<br><span style="font-size: 0.6em;">Salad</span></div>
+        <div class="item">
+            <div class="item-name">سلطة قيصر</div>
+            <div class="item-price">18</div>
+        </div>
+        <div class="item">
+            <div class="item-name">سلطة يونانية</div>
+            <div class="item-price">28</div>
+        </div>
+        <div class="item">
+            <div class="item-name">سلطة مكسيكية</div>
+            <div class="item-price">28</div>
+        </div>
+        <div class="item">
+            <div class="item-name">سلطة كينوا</div>
+            <div class="item-price">32</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">مقبلات<br><span style="font-size: 0.6em;">Appetizers</span></div>
+        <div class="item">
+            <div class="item-name">بطاطس مقلية</div>
+            <div class="item-price">15</div>
+        </div>
+        <div class="item">
+            <div class="item-name">اجنحة دجاج</div>
+            <div class="item-price">20</div>
+        </div>
+        <div class="item">
+            <div class="item-name">حلقات بصل</div>
+            <div class="item-price">18</div>
+        </div>
+        <div class="item">
+            <div class="item-name">أصابع موزاريلا</div>
+            <div class="item-price">25</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-header">اختيارات الشيف<br><span style="font-size: 0.6em;">Our Signature</span></div>
+        <div class="item">
+            <div class="item-name">واغيو</div>
+            <div class="item-price">299</div>
+        </div>
+        <div class="item">
+            <div class="item-name">ستريبلوين</div>
+            <div class="item-price">150</div>
+        </div>
+        <div class="item">
+            <div class="item-name">تومهاوك</div>
+            <div class="item-price">330</div>
+        </div>
+        <div class="item">
+            <div class="item-name">برايم أنجوس</div>
+            <div class="item-price">200</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">حلويات<br><span style="font-size: 0.6em;">Dessert</span></div>
+        <div class="item">
+            <div class="item-name">نابوس كنافة</div>
+            <div class="item-price">19</div>
+        </div>
+        <div class="item">
+            <div class="item-name">أم علي</div>
+            <div class="item-price">15</div>
+        </div>
+    </div>
+
+    <div class="notes grid-span-4">
+        <p><strong>احتياجات الشخص من السعرات الحرارية</strong></p>
+        <p><strong>الرجل:</strong> 2000 - 3000 سعرة حرارية</p>
+        <p><strong>المرأة:</strong> 1600 - 2400 سعرة حرارية</p>
+        <p><strong>الأطفال:</strong> 1800 سعرة حرارية</p>
+    </div>
+
+</div>
+```
+
+\</body\>
+\</html\>
+
+```
+```
