@@ -32,7 +32,6 @@
 
         /* إضافة صورة مائية في الخلفية */
         .menu-container::before {
-            /* قم بإزالة علامات التعليق '/*' و '*/' لتفعيل الكود */
             /*
             content: '';
             position: absolute;
@@ -169,6 +168,30 @@
         .smokemeat { grid-column: 2 / span 2; grid-row: 2 / span 2; }
         .dessert { grid-column: 4; grid-row: 2; }
 
+        /* Media Queries للتوافق مع شاشات الجوال */
+        @media (max-width: 768px) {
+            .menu-container {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            .logo-section {
+                grid-column: 1 / -1;
+            }
+
+            .section, .grid-span-2, .notes-section, .soup, .signature, .burger, .drinks, .salad, .appetizers, .smokemeat, .dessert {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            .section-header {
+                font-size: 1.5em;
+            }
+
+            .item-name, .item-price, .item-description, .sub-section-title {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -280,7 +303,7 @@
             </ul>
         </div>
         
-        <div class="section appetisers">
+        <div class="section appetizers">
             <div class="section-header">مقبلات<span>Appetizers</span></div>
             <div class="sub-section-title">باردة</div>
             <ul class="item-list">
