@@ -133,7 +133,7 @@
  }
 
  .item-calories::after {
- content: ' سعرة';
+ content: ' Cal - سعرة';
  margin-right: 5px;
  font-size: 0.8em;
  color: #aaa;
@@ -149,6 +149,15 @@
  .sub-section-title {
  text-align: center;
  color: #ccc;
+ font-size: 1.2em;
+ margin: 10px 0;
+ border-bottom: 1px dotted #555;
+ padding-bottom: 5px;
+ }
+
+ .sub-section-title2nd {
+ text-align: center;
+ color: #aaa;
  font-size: 1.2em;
  margin: 10px 0;
  border-bottom: 1px dotted #555;
@@ -243,8 +252,8 @@
 
  <div class="section soup">
  <div class="section-header">Soup<span>شوربات</span></div>
- <p><center>Served inside hard italian bread</center></p>
- <p><center>تقدم بخبزة الشوربة ايطاليه</center></p>
+ <p class="item-description">Served inside hard italian bread</p>
+ <p class="item-description">تقدم بخبزة الشوربة ايطالية</p>
  <ul class="item-list">
  <li class="item">
  <div class="item-info">
@@ -252,8 +261,8 @@
  <span class="item-translation">Mushroom Soup</span>
  </div>
  <div class="item-price-calories">
- <span class="item-price">10<img src="https://www.meat-zone.com/SAR.png" alt="ريال" class="sar-icon"></span>
- <span class="item-calories">0</span>
+ <span class="item-price">28<img src="https://www.meat-zone.com/SAR.png" alt="ريال" class="sar-icon"></span>
+ <span class="item-calories">220</span>
  </div>
  </li>
  <li class="item">
@@ -262,8 +271,8 @@
  <span class="item-translation">Lentil Soup</span>
  </div>
  <div class="item-price-calories">
- <span class="item-price">110<img src="https://www.meat-zone.com/SAR.png" alt="ريال" class="sar-icon"></span>
- <span class="item-calories">0</span>
+ <span class="item-price">18<img src="https://www.meat-zone.com/SAR.png" alt="ريال" class="sar-icon"></span>
+ <span class="item-calories">170</span>
  </div>
  </li>
  </ul>
@@ -278,8 +287,8 @@
  <span class="item-translation">Wagyu</span>
  </div>
  <div class="item-price-calories">
- <span class="item-price">0<img src="https://www.meat-zone.com/SAR.png" alt="ريال" class="sar-icon"></span>
- <span class="item-calories">0</span>
+ /*<span class="item-price">0<img src="https://www.meat-zone.com/SAR.png" alt="ريال" class="sar-icon"></span>*/
+ <span class="item-calories">259</span>
  </div>
  </li>
  <li class="item">
@@ -289,7 +298,7 @@
  </div>
  <div class="item-price-calories">
  <span class="item-price">0<img src="https://www.meat-zone.com/SAR.png" alt="ريال" class="sar-icon"></span>
- <span class="item-calories">0</span>
+ <span class="item-calories">150</span>
  </div>
  </li>
  <li class="item">
@@ -299,7 +308,7 @@
  </div>
  <div class="item-price-calories">
  <span class="item-price">0<img src="https://www.meat-zone.com/SAR.png" alt="ريال" class="sar-icon"></span>
- <span class="item-calories">0</span>
+ <span class="item-calories">330</span>
  </div>
  </li>
  <li class="item">
@@ -309,7 +318,7 @@
  </div>
  <div class="item-price-calories">
  <span class="item-price">0<img src="https://www.meat-zone.com/SAR.png" alt="ريال" class="sar-icon"></span>
- <span class="item-calories">0</span>
+ <span class="item-calories">200</span>
  </div>
  </li>
  </ul>
@@ -317,10 +326,15 @@
 
  <div class="section burger">
  <div class="section-header">Burger<span>برجر</span></div>
+ <div class="sub-section-title2nd">Smoke burger</div>
+  
  <div class="sub-section-title">برجر لحم</div>
  <ul class="item-list">
  <li class="item">
  <div class="item-info">
+
+
+  
  <span class="item-name">ساندوتش</span>
  <span class="item-translation">Sandwich</span>
  </div>
